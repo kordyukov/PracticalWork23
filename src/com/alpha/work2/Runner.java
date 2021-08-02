@@ -21,7 +21,7 @@ public class Runner {
 
     public void WriteShapes(Shape[] shape) {
         for (Shape shape1 : shape) {
-            System.out.println(shape1);
+            System.out.println(shape1 + " Площадь =" + shape1.calcArea());
 
         }
     }

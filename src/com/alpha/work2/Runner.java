@@ -1,10 +1,17 @@
 package com.alpha.work2;
 
+import com.alpha.work1.Device;
+
+import java.util.Scanner;
+
 public class Runner {
     public void run() {
-        //Shape shape = new Shape();
-        //CreateShapes();
         WriteShapes(CreateShapes());
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("Выбраные фигуры");
+        CalcSumm(CreateShapes(),"Circle");
+        System.out.println("---------------------------------------------------------------");
+        CalcAllSumm(CreateShapes());
     }
 
     public Shape[] CreateShapes() {
@@ -15,15 +22,61 @@ public class Runner {
                 new Circle("White", 5.0),
                 new Circle("Red", 4.0),
                 new Circle("blue", 3.0),
-                new Triangle("White", 3, 5, 8),
+                new Triangle("White", 3.1, 5.5, 8.5),
                 new Triangle("Red", 4, 5, 8)};
     }
 
     public void WriteShapes(Shape[] shape) {
         for (Shape shape1 : shape) {
-            System.out.println(shape1 + " Площадь =" + shape1.calcArea());
+            System.out.print(shape1 + " Площадь = ");
+            System.out.printf("%.2f \n",shape1.calcArea());
 
         }
     }
+
+    public void CalcAllSumm(Shape[] shapes){
+        double SummAll = 0.0;
+        for (Shape shape1: shapes) {
+            System.out.print("Площадь "+shape1+ " = ");
+            System.out.printf("%.2f \n",shape1.calcArea());
+            SummAll+=shape1.calcArea();
+        }
+        System.out.println("--------------------------------------------------");
+        System.out.print("Сумма всех площадей всех фигур = ");
+        System.out.printf("%.2f \n",SummAll);
+    }
+
+
+
+    public void CalcSumm(Shape[] shape, String figure){
+        for (Shape shape1:shape) {
+            switch (figure){
+                case "Rectangle":
+                    if (shape1.getClass().getName()=="com.alpha.work2.Rectangle"){
+                        System.out.print("Площадь прямоугольника = ");
+                        System.out.printf("%.2f \n",shape1.calcArea());
+                    }
+                    break;
+
+                case "Circle":
+                    if (shape1.getClass().getName()=="com.alpha.work2.Circle") {
+                        System.out.print("Площадь круга = ");
+                        System.out.printf("%.2f \n", shape1.calcArea());
+                    }
+                    break;
+                case "Triangle":
+                    if (shape1.getClass().getName()=="com.alpha.work2.Triangle") {
+                        System.out.print("Площадь треугольника = ");
+                        System.out.printf("%.2f \n", shape1.calcArea());
+                    }
+                    break;
+                default:
+                    System.out.println("Не уазана фигура!");
+                    break;
+
+            }
+        }
+    }
+
 }
 

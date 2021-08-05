@@ -5,8 +5,8 @@ public class Runner {
         Device device = new Device();
         System.out.println(device + "\n");
         PrintDevices(CreateDevices());
-        System.out.println(equals(device));
-        System.out.println(device.hashCode());;
+//        System.out.println(equals(device));
+//        System.out.println(device.hashCode());;
 
     }
 
@@ -18,7 +18,7 @@ public class Runner {
     }
     public void PrintDevices(Device[] device) {
         for (Device device1:device) {
-            System.out.println(device1);
+            System.out.println(device1+"hashcode = "+ device1.hashCode()+"equals - " + device1.equals(device));
         }
 //         for (int i = 0;i<device.length;i++){
 //             System.out.println(device[i]);

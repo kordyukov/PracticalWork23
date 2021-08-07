@@ -12,6 +12,10 @@ public class Triangle extends Shape {
         this.c = c;
     }
 
+    public Triangle() {
+
+    }
+
 
     @Override
     public double calcArea() {

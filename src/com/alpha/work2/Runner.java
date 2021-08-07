@@ -2,14 +2,19 @@ package com.alpha.work2;
 
 import com.alpha.work1.Device;
 
+
 import java.util.Scanner;
 
 public class Runner {
+
     public void run() {
+
         WriteShapes(CreateShapes());
         System.out.println("---------------------------------------------------------------");
         System.out.println("Выбраные фигуры");
-        CalcSumm(CreateShapes(),"Circle");
+        //CalcSumm(CreateShapes(),"Rectangle");
+
+        CalcSummIstanseof(CreateShapes(),new Rectangle());
         System.out.println("---------------------------------------------------------------");
         CalcAllSumm(CreateShapes());
     }
@@ -47,8 +52,9 @@ public class Runner {
     }
 
 
+    public void CalcSumm(Shape[] shape,String figure){
 
-    public void CalcSumm(Shape[] shape, String figure){
+        //System.out.println(shape instanceof );
         for (Shape shape1:shape) {
             switch (figure){
                 case "Rectangle":
@@ -78,5 +84,28 @@ public class Runner {
         }
     }
 
+    public void CalcSummIstanseof(Shape[] shape, Object o) {
+        for (Shape s:
+             shape) {
+            if (o instanceof Rectangle){
+                if (s.getClass().getName()=="com.alpha.work2.Rectangle")
+                {
+                    System.out.printf("%.2f Площадь прямоугольника \n", s.calcArea());
+                }
+            }else if(o instanceof Circle){
+                if (s.getClass().getName()=="com.alpha.work2.Circle"){
+                    System.out.printf("%.2f Площадь окружности \n", s.calcArea());
+                }
+            }
+            else if (o instanceof Triangle){
+                if (s.getClass().getName()=="com.alpha.work2.Triangle"){
+                    System.out.printf("%.2f Площадь треугольника \n", s.calcArea());
+                }
+            } else {
+                System.out.println("Неверный тип!!!");
+            }
+        }
+    }
 }
+
 

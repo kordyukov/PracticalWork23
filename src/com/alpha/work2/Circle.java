@@ -9,6 +9,10 @@ public class Circle extends Shape {
         this.radius = radius;
     }
 
+    public Circle() {
+
+    }
+
     @Override
     public double calcArea() {
         return this.PI*Math.pow(this.radius,2);

@@ -7,7 +7,10 @@ public class Shape {
         this.color = color;
     }
 
-   // public Shape() {
+    public Shape() {
+    }
+
+    // public Shape() {
 
   //  }
 

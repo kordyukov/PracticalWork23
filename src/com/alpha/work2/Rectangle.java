@@ -9,11 +9,9 @@ public class Rectangle extends Shape {
         this.width = width;
         this.height = height;
     }
-//    public Rectangle(){
-//
-//    }
+    public Rectangle(){
 
-
+    }
 
     @Override
     public double calcArea() {
